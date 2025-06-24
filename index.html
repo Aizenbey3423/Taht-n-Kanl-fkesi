@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
@@ -161,7 +122,7 @@
     }
 
     .cyborg {
-      color: #ff7b00; /* mavi - sadık */
+      color: #ff7b00; /* turuncu - sadık */
     }
 
     .keyword {
@@ -176,6 +137,18 @@
       transform: scale(1.1);
       color: #ffff00;
       text-shadow: 0 0 5px #ffff00;
+    }
+
+    .dialogue {
+      color: #ffffff;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 3px #ff7b00;
+    }
+
+    .dialogue:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 5px #ff7b00, 0 0 10px #ff7b00;
+      color: #ffebcc;
     }
 
     .character span {
@@ -255,40 +228,40 @@
   <section>
     <h2>Karakterler ve Mekanikler</h2>
     <div class="character blade-master">
-      <strong><span>Kerem (Blade Master):</span></strong> Hızlı kılıç kombolarıyla (M1, 1: Split Second Counter) anime tarzı öfke patlamasına uygun. Nihai modda (Atomic Slash) yakan kılıç becerileri (Atmos Cleave, Solar Cleave). Pasif: Finisher sonrası M1 hasarı artar. RP: Sakin lider, Eren’in ihanetiyle öfkelenir, nihai modda “SENİ ÖLDÜRÜCEM!” bağırır.
+      <strong><span>Kerem (Blade Master):</span></strong> Hızlı kılıç kombolarıyla (M1, 1: Split Second Counter) anime tarzı öfke patlamasına uygun. Nihai modda (Atomic Slash) yakan kılıç becerileri (Atmos Cleave, Solar Cleave). Pasif: Finisher sonrası M1 hasarı artar. RP: Sakin lider, Eren’in ihanetiyle öfkelenir, nihai modda <span class="dialogue">“SENİ ÖLDÜRÜCEM!”</span> bağırır.
     </div>
     <div class="character martial-artist">
-      <strong><span>Eren (Martial Artist):</span></strong> Hızlı, yakın dövüş odaklı (M1, 1: Vanishing Kick), nihai modda yıkıcı beceriler (Grand Fissure). Pasif: Zırhlı beceriler, takım dövüşlerinde güçlü. RP: Alaycı, sinsi, ihanetle “Kral benim!” der.
+      <strong><span>Eren (Martial Artist):</span></strong> Hızlı, yakın dövüş odaklı (M1, 1: Vanishing Kick), nihai modda yıkıcı beceriler (Grand Fissure). Pasif: Zırhlı beceriler, takım dövüşlerinde güçlü. RP: Alaycı, sinsi, ihanetle <span class="dialogue">“Kral benim!”</span> der.
     </div>
     <div class="character cyborg">
-      <strong><span>Sude (Destructive Cyborg):</span></strong> Menzilli patlayıcılar (3: Incinerate), sadık ama kırılgan. Nihai modda yüksek hasar (Speedblitz Dropkick). Pasif: Finisher’lar beceri bekleme sürelerini sıfırlar. RP: Sadık, duygusal, ihanette “Eren, niye?!” der.
+      <strong><span>Sude (Destructive Cyborg):</span></strong> Menzilli patlayıcılar (3: Incinerate), sadık ama kırılgan. Nihai modda yüksek)b yüksek hasar (Speedblitz Dropkick). Pasif: Finisher’lar beceri bekleme sürelerini sıfırlar. RP: Sadık, duygusal, ihanette <span class="dialogue">“Eren, niye?!”</span> der.
     </div>
   </section>
 
   <section>
     <h2>Sahne 1: Pact’ın Kuruluşu</h2>
     <p>
-      <span class="keyword">Main Map</span> merkezinde, <span class="keyword">taht part’ı</span> uzakta durur. Akşamüstü, hafif bulutlu bir hava (Private Server+). <span class="blade-master">Kerem</span>, kılıcını kınına sokar ve tahta bakarak, “Ekip, bu arena bizim. Herkesi devirdik. O tahtı alacağız, kimse durduramaz!” der. <span class="cyborg">Sude</span>, jetleri parlayarak havada süzülür ve “Birlikte yenilmeziz!” diye onaylar. <span class="martial-artist">Eren</span>, omzunda yumruklarını çarpar ve sinsi bir sırıtışla, “Gerçek güç yalnızken parlar,” diyerek gerilim yaratır.
+      <span class="keyword">Main Map</span> merkezinde, <span class="keyword">taht part’ı</span> uzakta durur. Akşamüstü, hafif bulutlu bir hava (Private Server+). <span class="blade-master">Kerem</span>, kılıcını kınına sokar ve tahta bakarak, <span class="dialogue">“Ekip, bu arena bizim. Herkesi devirdik. O tahtı alacağız, kimse durduramaz!”</span> der. <span class="cyborg">Sude</span>, jetleri parlayarak havada süzülür ve <span class="dialogue">“Birlikte yenilmeziz!”</span> diye onaylar. <span class="martial-artist">Eren</span>, omzunda yumruklarını çarpar ve sinsi bir sırıtışla, <span class="dialogue">“Gerçek güç yalnızken parlar,”</span> diyerek gerilim yaratır.
     </p>
     <p>
-      <span class="blade-master">Kerem</span>, M1 ile kasaları dilimler, <span class="keyword">Triple Slash</span> ile NPC’lere seri vurur. <span class="cyborg">Sude</span>, <span class="keyword">Incinerate</span> ile kasaları yakar, jetlerle süzülür. <span class="martial-artist">Eren</span>, <span class="keyword">Vanishing Kick</span> ile NPC’lere atılır, alaycı bir şekilde “Kral kim, bakalım?” der. Üçlü, <span class="keyword">NPC dalgaları</span>nı temizlerken şakalaşır, ama Eren’in sinsi bakışı dikkat çeker.
+      <span class="blade-master">Kerem</span>, M1 ile kasaları dilimler, <span class="keyword">Triple Slash</span> ile NPC’lere seri vurur. <span class="cyborg">Sude</span>, <span class="keyword">Incinerate</span> ile kasaları yakar, jetlerle süzülür. <span class="martial-artist">Eren</span>, <span class="keyword">Vanishing Kick</span> ile NPC’lere atılır, alaycı bir şekilde <span class="dialogue">“Kral kim, bakalım?”</span> der. Üçlü, <span class="keyword">NPC dalgaları</span>nı temizlerken şakalaşır, ama Eren’in sinsi bakışı dikkat çeker.
     </p>
   </section>
 
   <section>
     <h2>Sahne 2: Şüphenin Tohumları</h2>
     <p>
-      <span class="keyword">Taht</span>a yaklaşırken, <span class="keyword">siper part’ları</span> arasında gece ve hafif bulutlar belirir. <span class="cyborg">Sude</span>, <span class="keyword">Incinerate</span> ile bir part yakar ve “Eren, niye sessizsin? Bir numara mı çeviriyorsun?” der. <span class="martial-artist">Eren</span>, yumruklarını çarparak güler, “Taht tek kişilik, düşünün.” <span class="blade-master">Kerem</span>, kılıcını sıkarak, “Pact yaptık. Bu lafları kes!” diye uyarır.
+      <span class="keyword">Taht</span>a yaklaşırken, <span class="keyword">siper part’ları</span> arasında gece ve hafif bulutlar belirir. <span class="cyborg">Sude</span>, <span class="keyword">Incinerate</span> ile bir part yakar ve <span class="dialogue">“Eren, niye sessizsin? Bir numara mı çeviriyorsun?”</span> der. <span class="martial-artist">Eren</span>, yumruklarını çarparak güler, <span class="dialogue">“Taht tek kişilik, düşünün.”</span> <span class="blade-master">Kerem</span>, kılıcını sıkarak, <span class="dialogue">“Pact yaptık. Bu lafları kes!”</span> diye uyarır.
     </p>
     <p>
-      <span class="martial-artist">Eren</span>, bilerek hata yapar ve <span class="cyborg">Sude</span> ragdoll olur. <span class="blade-master">Kerem</span>, <span class="keyword">Split Second Counter</span> ile NPC’lere kontra yapar, sinirlenerek “Eren, son uyarım!” der. <span class="martial-artist">Eren</span>, <span class="keyword">Head First</span> ile zırhlı dalış yapar, alaycı bir şekilde “Sakin, oyun!” der. Şüphe tohumları ekilir.
+      <span class="martial-artist">Eren</span>, bilerek hata yapar ve <span class="cyborg">Sude</span> ragdoll olur. <span class="blade-master">Kerem</span>, <span class="keyword">Split Second Counter</span> ile NPC’lere kontra yapar, sinirlenerek <span class="dialogue">“Eren, son uyarım!”</span> der. <span class="martial-artist">Eren</span>, <span class="keyword">Head First</span> ile zırhlı dalış yapar, alaycı bir şekilde <span class="dialogue">“Sakin, oyun!”</span> der. Şüphe tohumları ekilir.
     </p>
   </section>
 
   <section>
     <h2>Sahne 3: İhanetin Patlaması</h2>
     <p>
-      <span class="keyword">Taht part’ı</span> önünde, fırtına ve gök gürültüsüyle hava ağırlaşır. <span class="blade-master">Kerem</span>, “Eşitler olarak tahta oturacağız!” derken, <span class="martial-artist">Eren</span> öne çıkar ve nihai mod <span class="keyword">Grand Fissure</span>’yi açar: “Siz piyonlardınız. Kral benim!” <span class="cyborg">Sude</span>, jetleri alev alarak, “Hain! Sana güvendik!” diye bağırır.
+      <span class="keyword">Taht part’ı</span> önünde, fırtına ve gök gürültüsüyle hava ağırlaşır. <span class="blade-master">Kerem</span>, <span class="dialogue">“Eşitler olarak tahta oturacağız!”</span> derken, <span class="martial-artist">Eren</span> öne çıkar ve nihai mod <span class="keyword">Grand Fissure</span>’yi açar: <span class="dialogue">“Siz piyonlardınız. Kral benim!”</span> <span class="cyborg">Sude</span>, jetleri alev alarak, <span class="dialogue">“Hain! Sana güvendik!”</span> diye bağırır.
     </p>
     <p>
       <span class="blade-master">Kerem</span>, <span class="keyword">Quick Slice</span> ile Eren’e saldırır, <span class="cyborg">Sude</span> <span class="keyword">Incinerate</span> ile menzilli destek verir. <span class="martial-artist">Eren</span>, <span class="keyword">Earth Splitting Strike</span> ile tahtı sarsar, siperleri kırar. Dövüş kaotikleşir; Q dash’ler ve M1 spam’le arena alev alır.
@@ -298,20 +271,20 @@
   <section>
     <h2>Sahne 4: Kerem’in Öfke Patlaması</h2>
     <p>
-      <span class="keyword">Taht part’ı</span> çatlamış, fırtına zirvede. <span class="blade-master">Kerem</span>, nefes nefese, “Eren, dosttuk. Niye her şeyi mahvettin?” der. <span class="martial-artist">Eren</span>, tahta yaslanarak, “Zayıfsın, kılıççı,” diye alay eder. <span class="cyborg">Sude</span>, <span class="keyword">Incinerate</span> atar, ama Eren <span class="keyword">Head First</span> ile onu <span class="keyword">uçurum part’ı</span>na fırlatır.
+      <span class="keyword">Taht part’ı</span> çatlamış, fırtına zirvede. <span class="blade-master">Kerem</span>, nefes nefese, <span class="dialogue">“Eren, dosttuk. Niye her şeyi mahvettin?”</span> der. <span class="martial-artist">Eren</span>, tahta yaslanarak, <span class="dialogue">“Zayıfsın, kılıççı,”</span> diye alay eder. <span class="cyborg">Sude</span>, <span class="keyword">Incinerate</span> atar, ama Eren <span class="keyword">Head First</span> ile onu <span class="keyword">uçurum part’ı</span>na fırlatır.
     </p>
     <p>
-      <span class="blade-master">Kerem</span>, dişlerini sıkar ve “SENİ ÖLDÜRÜCEMMM!!!” diye bağırarak nihai mod <span class="keyword">Atomic Slash</span>’ı açar. Awakening Outfit ile kılıcı kırmızı alevle parlar. <span class="keyword">Atmos Cleave</span> ile seri kılıç darbeleri vurur, <span class="martial-artist">Eren</span>’i köşeye sıkıştırır. <span class="martial-artist">Eren</span>, <span class="keyword">Earth Splitting Strike</span> ile kaçar, finisher’ıyla Kerem’i tahta çarptırır.
+      <span class="blade-master">Kerem</span>, dişlerini sıkar ve <span class="dialogue">“SENİ ÖLDÜRÜCEMMM!!!”</span> diye bağırarak nihai mod <span class="keyword">Atomic Slash</span>’ı açar. Awakening Outfit ile kılıcı kırmızı alevle parlar. <span class="keyword">Atmos Cleave</span> ile seri kılıç darbeleri vurur, <span class="martial-artist">Eren</span>’i köşeye sıkıştırır. <span class="martial-artist">Eren</span>, <span class="keyword">Earth Splitting Strike</span> ile kaçar, finisher’ıyla Kerem’i tahta çarptırır.
     </p>
   </section>
 
   <section>
     <h2>Sahne 5: Hainin Zaferi</h2>
     <p>
-      Fırtına diner, sessizlik çöker. <span class="martial-artist">Eren</span>, <span class="keyword">taht part’ı</span>nda oturur, soğukça, “En güçlü benim. Siz basamaktınız,” der. <span class="blade-master">Kerem</span>, yerde doğrulur, “Bu bitmedi. Geri döneceğim!” diye yemin eder. <span class="cyborg">Sude</span>, sürünerek kalkar, “Bir gün ödeyeceksin!” diye ağlar.
+      Fırtına diner, sessizlik çöker. <span class="martial-artist">Eren</span>, <span class="keyword">taht part’ı</span>nda oturur, soğukça, <span class="dialogue">“En güçlü benim. Siz basamaktınız,”</span> der. <span class="blade-master">Kerem</span>, yerde doğrulur, <span class="dialogue">“Bu bitmedi. Geri döneceğim!”</span> diye yemin eder. <span class="cyborg">Sude</span>, sürünerek kalkar, <span class="dialogue">“Bir gün ödeyeceksin!”</span> diye ağlar.
     </p>
     <p>
-      <span class="martial-artist">Eren</span>, umursamaz bir sırıtışla, “Bu arena benim,” der. <span class="blade-master">Kerem</span> ve <span class="cyborg">Sude</span>, <span class="keyword">spawn noktası</span>na çekilir, intikam yemini ederken gökyüzü karanlığa bürünür.
+      <span class="martial-artist">Eren</span>, umursamaz bir sırıtışla, <span class="dialogue">“Bu arena benim,”</span> der. <span class="blade-master">Kerem</span> ve <span class="cyborg">Sude</span>, <span class="keyword">spawn noktası</span>na çekilir, intikam yemini ederken gökyüzü karanlığa bürünür.
     </p>
   </section>
 
