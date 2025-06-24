@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tahtın Kanlı Öfkesi</title>
+  <title>Kardeşlikten İhanete: Canavarın Uyanışı</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
@@ -11,7 +11,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(to bottom, #1a0b3d, #2c1a5c);
+      background: linear-gradient(to bottom, #0a0a0a, #333333);
       color: #fff;
       overflow-x: hidden;
       animation: fadeIn 2s ease;
@@ -25,8 +25,8 @@
     .neon {
       text-shadow:
         0 0 3px #fff,
-        0 0 5px #ff00ff,
-        0 0 10px #ff00ff;
+        0 0 5px #ffffff,
+        0 0 10px #ffffff;
       transition: all 0.3s ease;
       animation: flicker 3s infinite;
       z-index: 10;
@@ -41,16 +41,16 @@
       transform: scale(1.1);
       text-shadow:
         0 0 5px #fff,
-        0 0 10px #00f0ff,
-        0 0 20px #00f0ff;
-      color: #00f0ff;
+        0 0 10px #000000,
+        0 0 20px #000000;
+      color: #000000;
     }
 
     header {
       text-align: center;
       padding: 2rem;
       font-size: 2.5rem;
-      color: #ff00ff;
+      color: #ffffff;
       position: relative;
       z-index: 10;
     }
@@ -58,7 +58,7 @@
     section {
       padding: 1.5rem 3rem;
       margin: 1rem;
-      border-left: 4px solid #ff00ff;
+      border-left: 4px solid #ffffff;
       background-color: rgba(255, 255, 255, 0.15);
       border-radius: 8px;
       animation: borderPulse 2s infinite alternate, sectionFadeIn 1s ease forwards;
@@ -73,6 +73,10 @@
     section:nth-child(5) { animation-delay: 0.8s; }
     section:nth-child(6) { animation-delay: 1.0s; }
     section:nth-child(7) { animation-delay: 1.2s; }
+    section:nth-child(8) { animation-delay: 1.4s; }
+    section:nth-child(9) { animation-delay: 1.6s; }
+    section:nth-child(10) { animation-delay: 1.8s; }
+    section:nth-child(11) { animation-delay: 2.0s; }
 
     @keyframes sectionFadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -80,22 +84,22 @@
     }
 
     @keyframes borderPulse {
-      from { border-left-color: #ff00ff; }
-      to { border-left-color: #00f0ff; }
+      from { border-left-color: #ffffff; }
+      to { border-left-color: #000000; }
     }
 
     h2 {
-      color: #ff00ff;
-      border-bottom: 2px solid #ff00ff;
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
       padding-bottom: 0.5rem;
       transition: all 0.3s ease;
-      text-shadow: 0 0 3px #ff00ff;
+      text-shadow: 0 0 3px #ffffff;
     }
 
     h2:hover {
       transform: scale(1.05);
-      color: #00f0ff;
-      text-shadow: 0 0 5px #00f0ff;
+      color: #000000;
+      text-shadow: 0 0 5px #000000;
     }
 
     p, .character {
@@ -113,20 +117,20 @@
       100% { transform: translateY(0); }
     }
 
+    .hero-hunter {
+      color: #00c3ff; /* mavi yerine siyah - Kerem */
+    }
+
     .blade-master {
-      color: #ff4444; /* kırmızı - öfkeli */
+      color: #ff0000; /* kırmızı - Eren */
     }
 
-    .martial-artist {
-      color: #aa00ff; /* mor - sinsi */
-    }
-
-    .cyborg {
-      color: #ff7b00; /* turuncu - sadık */
+    .wild-psychic {
+      color: #00ff00; /* yeşil - Sude */
     }
 
     .keyword {
-      color: #ffd700;
+      color: #242424;
       font-weight: bold;
       transition: all 0.3s ease;
       animation: float 2.5s infinite ease-in-out;
@@ -135,20 +139,44 @@
 
     .keyword:hover {
       transform: scale(1.1);
-      color: #ffff00;
-      text-shadow: 0 0 5px #ffff00;
+      color: #000000;
+      text-shadow: 0 0 5px #ffffff;
     }
 
-    .dialogue {
+    .dialogue.hero-hunter {
       color: #ffffff;
       transition: all 0.3s ease;
-      text-shadow: 0 0 3px #ff7b00;
+      text-shadow: 0 0 3px #000000;
     }
 
-    .dialogue:hover {
+    .dialogue.hero-hunter:hover {
       transform: scale(1.05);
-      text-shadow: 0 0 5px #ff7b00, 0 0 10px #ff7b00;
-      color: #ffebcc;
+      text-shadow: 0 0 5px #000000, 0 0 10px #000000;
+      color: #333333;
+    }
+
+    .dialogue.blade-master {
+      color: #ffffff;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 3px #ff0000;
+    }
+
+    .dialogue.blade-master:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+      color: #ffcccc;
+    }
+
+    .dialogue.wild-psychic {
+      color: #ffffff;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 3px #00ff00;
+    }
+
+    .dialogue.wild-psychic:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+      color: #ccffcc;
     }
 
     .character span {
@@ -165,8 +193,8 @@
     }
 
     @keyframes glow {
-      from { text-shadow: 0 0 3px #ff00ff; }
-      to { text-shadow: 0 0 5px #ff00ff; }
+      from { text-shadow: 0 0 3px #ffffff; }
+      to { text-shadow: 0 0 5px #ffffff; }
     }
 
     canvas#skyCanvas {
@@ -177,7 +205,7 @@
       height: 100vh;
       pointer-events: none;
       z-index: -1;
-      background: linear-gradient(to bottom, #1a0b3d, #2c1a5c);
+      background: linear-gradient(to bottom, #0a0a0a, #333333);
     }
 
     /* Mobile Responsiveness */
@@ -223,89 +251,176 @@
 <body>
   <canvas id="skyCanvas"></canvas>
 
-  <header class="neon">Tahtın Kanlı Öfkesi</header>
+  <header class="neon">Kardeşlikten İhanete: Canavarın Uyanışı</header>
 
   <section>
-    <h2>Karakterler ve Mekanikler</h2>
+    <h2>Karakterler</h2>
+    <div class="character hero-hunter">
+      <strong><span>Kerem (Hero Hunter → Monster Garou Mastery):</span></strong> Sessiz, stratejik, duygularını bastıran, gözlemci. Eski dostları tarafından ihanete uğrayan, ama yeniden ayağa kalkarak herkesi şaşırtan kişi.
+    </div>
     <div class="character blade-master">
-      <strong><span>Kerem (Blade Master):</span></strong> Hızlı kılıç kombolarıyla (M1, 1: Split Second Counter) anime tarzı öfke patlamasına uygun. Nihai modda (Atomic Slash) yakan kılıç becerileri (Atmos Cleave, Solar Cleave). Pasif: Finisher sonrası M1 hasarı artar. RP: Sakin lider, Eren’in ihanetiyle öfkelenir, nihai modda <span class="dialogue">“SENİ ÖLDÜRÜCEM!”</span> bağırır.
+      <strong><span>Eren (Blade Master):</span></strong> Hırslı, agresif, geçmişte dost, şimdi rakip. Kerem’e ihanet eden ama içten içe suçluluk duyan kişi.
     </div>
-    <div class="character martial-artist">
-      <strong><span>Eren (Martial Artist):</span></strong> Hızlı, yakın dövüş odaklı (M1, 1: Vanishing Kick), nihai modda yıkıcı beceriler (Grand Fissure). Pasif: Zırhlı beceriler, takım dövüşlerinde güçlü. RP: Alaycı, sinsi, ihanetle <span class="dialogue">“Kral benim!”</span> der.
-    </div>
-    <div class="character cyborg">
-      <strong><span>Sude (Destructive Cyborg):</span></strong> Menzilli patlayıcılar (3: Incinerate), sadık ama kırılgan. Nihai modda yüksek)b yüksek hasar (Speedblitz Dropkick). Pasif: Finisher’lar beceri bekleme sürelerini sıfırlar. RP: Sadık, duygusal, ihanette <span class="dialogue">“Eren, niye?!”</span> der.
+    <div class="character wild-psychic">
+      <strong><span>Sude (Wild Psychic):</span></strong> Sessiz, zeki, manipülatif. Arka plandaki planların sahibi – görünürde destekçi, aslında ihanetin kaynağı.
     </div>
   </section>
 
   <section>
-    <h2>Sahne 1: Pact’ın Kuruluşu</h2>
+    <h2>Bölüm 1: İlk Karşılaşma - Tanışma ve Test</h2>
     <p>
-      <span class="keyword">Main Map</span> merkezinde, <span class="keyword">taht part’ı</span> uzakta durur. Akşamüstü, hafif bulutlu bir hava (Private Server+). <span class="blade-master">Kerem</span>, kılıcını kınına sokar ve tahta bakarak, <span class="dialogue">“Ekip, bu arena bizim. Herkesi devirdik. O tahtı alacağız, kimse durduramaz!”</span> der. <span class="cyborg">Sude</span>, jetleri parlayarak havada süzülür ve <span class="dialogue">“Birlikte yenilmeziz!”</span> diye onaylar. <span class="martial-artist">Eren</span>, omzunda yumruklarını çarpar ve sinsi bir sırıtışla, <span class="dialogue">“Gerçek güç yalnızken parlar,”</span> diyerek gerilim yaratır.
+      Arena sabah sisiyle kaplı. <span class="hero-hunter">Kerem</span> ve <span class="blade-master">Eren</span> birbirlerine mesafeli, dikkatli bakıyor.
     </p>
     <p>
-      <span class="blade-master">Kerem</span>, M1 ile kasaları dilimler, <span class="keyword">Triple Slash</span> ile NPC’lere seri vurur. <span class="cyborg">Sude</span>, <span class="keyword">Incinerate</span> ile kasaları yakar, jetlerle süzülür. <span class="martial-artist">Eren</span>, <span class="keyword">Vanishing Kick</span> ile NPC’lere atılır, alaycı bir şekilde <span class="dialogue">“Kral kim, bakalım?”</span> der. Üçlü, <span class="keyword">NPC dalgaları</span>nı temizlerken şakalaşır, ama Eren’in sinsi bakışı dikkat çeker.
-    </p>
-  </section>
-
-  <section>
-    <h2>Sahne 2: Şüphenin Tohumları</h2>
-    <p>
-      <span class="keyword">Taht</span>a yaklaşırken, <span class="keyword">siper part’ları</span> arasında gece ve hafif bulutlar belirir. <span class="cyborg">Sude</span>, <span class="keyword">Incinerate</span> ile bir part yakar ve <span class="dialogue">“Eren, niye sessizsin? Bir numara mı çeviriyorsun?”</span> der. <span class="martial-artist">Eren</span>, yumruklarını çarparak güler, <span class="dialogue">“Taht tek kişilik, düşünün.”</span> <span class="blade-master">Kerem</span>, kılıcını sıkarak, <span class="dialogue">“Pact yaptık. Bu lafları kes!”</span> diye uyarır.
+      <span class="blade-master">Eren</span> (kılıcını kılıfından çıkarıp elinde tutuyor): <span class="dialogue blade-master">“Burası oyun alanı, dostluk değil, güç konuşur. Hazır mısın?”</span>
     </p>
     <p>
-      <span class="martial-artist">Eren</span>, bilerek hata yapar ve <span class="cyborg">Sude</span> ragdoll olur. <span class="blade-master">Kerem</span>, <span class="keyword">Split Second Counter</span> ile NPC’lere kontra yapar, sinirlenerek <span class="dialogue">“Eren, son uyarım!”</span> der. <span class="martial-artist">Eren</span>, <span class="keyword">Head First</span> ile zırhlı dalış yapar, alaycı bir şekilde <span class="dialogue">“Sakin, oyun!”</span> der. Şüphe tohumları ekilir.
+      <span class="hero-hunter">Kerem</span> (soğuk ve ölçülü): <span class="dialogue hero-hunter">“Önce birbirimizi tanıyalım. Belki aramızda saygı olur.”</span>
+    </p>
+    <p>
+      <span class="blade-master">Eren</span> omuz silkerek saldırır, <span class="hero-hunter">Kerem</span> ustaca karşılık verir. Dövüş boyunca birbirlerinin stilini çözmeye çalışırlar. Duruşları sert ama içten bir saygı oluşur.
     </p>
   </section>
 
   <section>
-    <h2>Sahne 3: İhanetin Patlaması</h2>
+    <h2>Bölüm 2: Güç Birliği - Takım Doğuyor</h2>
     <p>
-      <span class="keyword">Taht part’ı</span> önünde, fırtına ve gök gürültüsüyle hava ağırlaşır. <span class="blade-master">Kerem</span>, <span class="dialogue">“Eşitler olarak tahta oturacağız!”</span> derken, <span class="martial-artist">Eren</span> öne çıkar ve nihai mod <span class="keyword">Grand Fissure</span>’yi açar: <span class="dialogue">“Siz piyonlardınız. Kral benim!”</span> <span class="cyborg">Sude</span>, jetleri alev alarak, <span class="dialogue">“Hain! Sana güvendik!”</span> diye bağırır.
+      <span class="wild-psychic">Sude</span>, uzaktan sessizce izler ve yanlarına gelir.
     </p>
     <p>
-      <span class="blade-master">Kerem</span>, <span class="keyword">Quick Slice</span> ile Eren’e saldırır, <span class="cyborg">Sude</span> <span class="keyword">Incinerate</span> ile menzilli destek verir. <span class="martial-artist">Eren</span>, <span class="keyword">Earth Splitting Strike</span> ile tahtı sarsar, siperleri kırar. Dövüş kaotikleşir; Q dash’ler ve M1 spam’le arena alev alır.
-    </p>
-  </section>
-
-  <section>
-    <h2>Sahne 4: Kerem’in Öfke Patlaması</h2>
-    <p>
-      <span class="keyword">Taht part’ı</span> çatlamış, fırtına zirvede. <span class="blade-master">Kerem</span>, nefes nefese, <span class="dialogue">“Eren, dosttuk. Niye her şeyi mahvettin?”</span> der. <span class="martial-artist">Eren</span>, tahta yaslanarak, <span class="dialogue">“Zayıfsın, kılıççı,”</span> diye alay eder. <span class="cyborg">Sude</span>, <span class="keyword">Incinerate</span> atar, ama Eren <span class="keyword">Head First</span> ile onu <span class="keyword">uçurum part’ı</span>na fırlatır.
+      <span class="wild-psychic">Sude</span> (ses tonuyla oynayarak): <span class="dialogue wild-psychic">“Güçlü olanlar yalnız kalmaz. Siz ikiniz... bir araya gelin, asıl o zaman kazanırsınız.”</span>
     </p>
     <p>
-      <span class="blade-master">Kerem</span>, dişlerini sıkar ve <span class="dialogue">“SENİ ÖLDÜRÜCEMMM!!!”</span> diye bağırarak nihai mod <span class="keyword">Atomic Slash</span>’ı açar. Awakening Outfit ile kılıcı kırmızı alevle parlar. <span class="keyword">Atmos Cleave</span> ile seri kılıç darbeleri vurur, <span class="martial-artist">Eren</span>’i köşeye sıkıştırır. <span class="martial-artist">Eren</span>, <span class="keyword">Earth Splitting Strike</span> ile kaçar, finisher’ıyla Kerem’i tahta çarptırır.
-    </p>
-  </section>
-
-  <section>
-    <h2>Sahne 5: Hainin Zaferi</h2>
-    <p>
-      Fırtına diner, sessizlik çöker. <span class="martial-artist">Eren</span>, <span class="keyword">taht part’ı</span>nda oturur, soğukça, <span class="dialogue">“En güçlü benim. Siz basamaktınız,”</span> der. <span class="blade-master">Kerem</span>, yerde doğrulur, <span class="dialogue">“Bu bitmedi. Geri döneceğim!”</span> diye yemin eder. <span class="cyborg">Sude</span>, sürünerek kalkar, <span class="dialogue">“Bir gün ödeyeceksin!”</span> diye ağlar.
+      <span class="hero-hunter">Kerem</span> (tereddütle): <span class="dialogue hero-hunter">“Birlikte savaşmak kolay değil. Güvenmek daha zor.”</span>
     </p>
     <p>
-      <span class="martial-artist">Eren</span>, umursamaz bir sırıtışla, <span class="dialogue">“Bu arena benim,”</span> der. <span class="blade-master">Kerem</span> ve <span class="cyborg">Sude</span>, <span class="keyword">spawn noktası</span>na çekilir, intikam yemini ederken gökyüzü karanlığa bürünür.
+      <span class="blade-master">Eren</span>: <span class="dialogue blade-master">“Bir dene, belki işimize yarar.”</span>
+    </p>
+    <p>
+      Bir takım kurarlar. İlk düşmanlarına karşı birlikte savaşmaya başlarlar.
     </p>
   </section>
 
   <section>
-    <h2>Spotify Çalma Listesi ve Uygulama Notları</h2>
+    <h2>Bölüm 3: İlk Zaferler - Uyum</h2>
     <p>
-      <span class="keyword">Spotify Çalma Listesi</span>: “TSB İhanet RP”<br>
-      - Hayloft II – Mother Mother (Sahne 1: dostluk, gerilim)<br>
-      - Bury a Friend – Billie Eilish (Sahne 2: şüphe)<br>
-      - Enemy – Imagine Dragons (Sahne 3: ihanet)<br>
-      - In the End – Linkin Park (Sahne 4: Kerem’in öfkesi)<br>
-      - My Tears Ricochet – Taylor Swift (Sahne 5: hüzünlü son)<br>
-      - The Night We Met – Lord Huron (sonrası düşünce)<br>
-      - Runaway – AURORA (Kerem’in yemini)<br>
-      - Warriors – Imagine Dragons (gelecek RP’ler)
+      <span class="blade-master">Eren</span> keskin darbeleriyle düşmanları savururken, <span class="wild-psychic">Sude</span> psikolojik baskı yaratır. <span class="hero-hunter">Kerem</span> stratejik hamlelerle rakiplerin planını bozar. Birçok maçı kazanırlar, arenada adları duyulur.
+    </p>
+  </section>
+
+  <section>
+    <h2>Bölüm 4: Güvenin İnşası</h2>
+    <p>
+      Savaş aralarında sohbet ederler.
     </p>
     <p>
-      <span class="keyword">Uygulama Notları</span>:<br>
-      - <span class="keyword">Private Server+</span>: Main Map’te gereksiz objeleri gizle. Build Mode’da 1 taht part’ı (10x10x5, taş dokusu), 8 siper part’ı (4x4x2, ahşap/metal), 12 uçurum part’ı (10x1x2, siyah doku) ekle. Fırtına ve gece hava durumu, NPC spawn ayarla.<br>
-      - <span class="keyword">Mekanikler</span>: <span class="blade-master">Kerem</span> M1 ve <span class="keyword">Triple Slash</span> spam, nihai modda <span class="keyword">Atmos Cleave</span>. <span class="martial-artist">Eren</span> <span class="keyword">Vanishing Kick</span> ve <span class="keyword">Earth Splitting Strike</span>. <span class="cyborg">Sude</span> <span class="keyword">Incinerate</span> ve <span class="keyword">Speedblitz Dropkick</span>.<br>
-      - <span class="keyword">RP İpuçları</span>: <span class="blade-master">Kerem</span> sakin başlar, öfkede “Angry” emote. <span class="martial-artist">Eren</span> alaycı “Laugh” emote. <span class="cyborg">Sude</span> duygusal “Sad” emote.
+      <span class="hero-hunter">Kerem</span>: <span class="dialogue hero-hunter">“Hiç böyle bir takımda olmadım. Doğru karar mı bu?”</span>
+    </p>
+    <p>
+      <span class="blade-master">Eren</span>: <span class="dialogue blade-master">“Güven her şeydir. Arkanda durduklarını bilmek lazım.”</span>
+    </p>
+    <p>
+      <span class="wild-psychic">Sude</span> (hafif alaycı): <span class="dialogue wild-psychic">“Güven bazen en büyük tuzaktır.”</span>
+    </p>
+    <p>
+      Bu sözler havada asılı kalır, ama kimse üzerine gitmez.
+    </p>
+  </section>
+
+  <section>
+    <h2>Bölüm 5: Zirvedeyken Düşüş</h2>
+    <p>
+      Bir maçta <span class="wild-psychic">Sude</span> kritik anda <span class="hero-hunter">Kerem</span>’in hamlesini engeller.
+    </p>
+    <p>
+      <span class="hero-hunter">Kerem</span> (chat’te): <span class="dialogue hero-hunter">“Sude, neden?”</span>
+    </p>
+    <p>
+      <span class="wild-psychic">Sude</span> (soğuk): <span class="dialogue wild-psychic">“Bazen kazanmak için feda etmek gerekir.”</span>
+    </p>
+    <p>
+      <span class="blade-master">Eren</span> susar. <span class="hero-hunter">Kerem</span> 1’e 2 kalır ve yenilir.
+    </p>
+  </section>
+
+  <section>
+    <h2>Bölüm 6: İhanetin Gerçek Yüzü</h2>
+    <p>
+      Bir gece oyun içinde, <span class="wild-psychic">Sude</span> <span class="hero-hunter">Kerem</span>’e aniden büyük bir psişik saldırı yapar. Ardından <span class="blade-master">Eren</span> kılıcıyla son darbeyi vurur.
+    </p>
+    <p>
+      <span class="hero-hunter">Kerem</span> (şaşkın ve acı içinde): <span class="dialogue hero-hunter">“Bunu nasıl... yaparsınız?”</span>
+    </p>
+    <p>
+      <span class="blade-master">Eren</span>: <span class="dialogue blade-master">“Engel oluyordun. Bizi geri çekmek zorundaydık.”</span>
+    </p>
+    <p>
+      <span class="wild-psychic">Sude</span> (gülümseyerek): <span class="dialogue wild-psychic">“Senin için her şey çoktan bitti.”</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>Bölüm 7: Düşüş</h2>
+    <p>
+      <span class="hero-hunter">Kerem</span> yere yığılır. Takım dağılır. Herkes onun artık olmadığını düşünür.
+    </p>
+  </section>
+
+  <section>
+    <h2>Bölüm 8: Karanlıkla Anlaşma</h2>
+    <p>
+      <span class="hero-hunter">Kerem</span>, gizemli bir yerde sessizce uyanır. Karanlık bir varlık ona seslenir:
+    </p>
+    <p>
+      <span class="keyword">Karanlık Ses</span>: <span class="dialogue">“İhanet seni öldürmedi. Gücünü benden al, canavar olarak doğ.”</span>
+    </p>
+    <p>
+      <span class="hero-hunter">Kerem</span> (kararlılıkla): <span class="dialogue hero-hunter">“İntikam için ne gerekiyorsa yapacağım.”</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>Bölüm 9: Canavarın Dönüşü</h2>
+    <p>
+      <span class="hero-hunter">Kerem</span> arenaya <span class="keyword">Monster Garou</span> formunda döner. Gücü kat be kat artmıştır.
+    </p>
+    <p>
+      <span class="blade-master">Eren</span> (dehşetle): <span class="dialogue blade-master">“Bu mümkün değil... Kerem... sen ölmedin mi?”</span>
+    </p>
+    <p>
+      <span class="hero-hunter">Kerem</span> (soğuk ve tehditkar): <span class="dialogue hero-hunter">“Ben öldüm. Şimdi avlanıyorum.”</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>Bölüm 10: İntikam Ateşi</h2>
+    <p>
+      <span class="hero-hunter">Kerem</span>, eski dostlarını tek tek bozguna uğratır. Ama onları öldürmek yerine diz çökertir.
+    </p>
+    <p>
+      <span class="hero-hunter">Kerem</span>: <span class="dialogue hero-hunter">“Beni yok etmeye çalıştınız. Ama benim kaderim sizin ellerinizde bitmedi.”</span>
+    </p>
+    <p>
+      <span class="wild-psychic">Sude</span> (korkuyla): <span class="dialogue wild-psychic">“Bu... bu Kerem değil!”</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>Son: Epilog</h2>
+    <p>
+      <span class="hero-hunter">Kerem</span> sırtını döner ve uzaklaşır. O artık eski <span class="hero-hunter">Kerem</span> değildir.
+    </p>
+    <p>
+      <span class="blade-master">Eren</span> ve <span class="wild-psychic">Sude</span> geride kalır, yaptıklarının ağırlığı altında.
+    </p>
+    <p>
+      <span class="wild-psychic">Sude</span>, gizlice başka biriyle konuşur.
+    </p>
+    <p>
+      <span class="keyword">Gizemli Ses</span>: <span class="dialogue">“Canavarlar uyanıyor. Sıra bizde.”</span>
+    </p>
+    <p>
+      <span class="wild-psychic">Sude</span> (gülerek): <span class="dialogue wild-psychic">“Bu daha başlangıç.”</span>
     </p>
   </section>
 
@@ -398,12 +513,12 @@
       skyCtx.arc(moonX, moonY, 50, 0, Math.PI * 2);
       skyCtx.fill();
       skyCtx.beginPath();
-      skyCtx.fillStyle = `rgba(255, 255, 255, ${0.5 + Math.sin(time / 800) * 0.2})`;
-      skyCtx.arc(moonX, moonY, 90, 0, Math.PI * 2);
+      skyCtx.fillStyle = `rgba(255, 255, 255, ${0.6 + Math.sin(time / 800) * 0.2})`;
+      skyCtx.arc(moonX, moonY, 100, 0, Math.PI * 2);
       skyCtx.fill();
       skyCtx.beginPath();
-      skyCtx.fillStyle = `rgba(255, 255, 255, ${0.3 + Math.sin(time / 800) * 0.1})`;
-      skyCtx.arc(moonX, moonY, 120, 0, Math.PI * 2);
+      skyCtx.fillStyle = `rgba(255, 255, 255, ${0.4 + Math.sin(time / 800) * 0.1})`;
+      skyCtx.arc(moonX, moonY, 130, 0, Math.PI * 2);
       skyCtx.fill();
 
       // Draw Stars
